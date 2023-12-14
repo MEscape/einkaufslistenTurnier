@@ -3,7 +3,7 @@ let allPairs
 let ratingPoints = {left: 0, right: 0, MEsc: {left: false, right: false}, PyroFeuerHD: {left: false, right: false}, Viewer: {left: false, right: false}}
 
 window.addEventListener('DOMContentLoaded', () => {
-    fetch('https://localhost:3000/get-player')
+    fetch('https://turniermesc.onrender.com/get-player')
     .then(response => response.json())
     .then(data => {
         if(data.playerCount != 0)
@@ -74,7 +74,7 @@ const kickPlayer = (target) => {
     let userResponse = confirm(`Willst du ${target} wirklich kicken?`)
 
     if(userResponse) {
-        fetch('https://localhost:3000/remove-player', {
+        fetch('https://turniermesc.onrender.com/remove-player', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
