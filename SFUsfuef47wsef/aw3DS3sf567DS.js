@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
         event.preventDefault()
         key = document.getElementById("key").value
 
-        fetch('https://localhost:3000/check-access', {
+        fetch('https://turniermesc.onrender.com/check-access', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('logout').addEventListener('click', () => {
         if(success) {
             success = false
-            fetch('https://localhost:3000/log-out', {
+            fetch('https://turniermesc.onrender.com/log-out', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
     /*window.addEventListener('beforeunload', () => {
         if(success) {
             success = false
-            fetch('https://localhost:3000/log-out', {
+            fetch('https://turniermesc.onrender.com/log-out', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
