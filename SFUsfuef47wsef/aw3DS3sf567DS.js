@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
         event.preventDefault()
         key = document.getElementById("key").value
 
-        fetch('https://turniermesc.zyklisch.app/check-access', {
+        fetch('https://turniermesc.zyklisch.apap/check-access', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
