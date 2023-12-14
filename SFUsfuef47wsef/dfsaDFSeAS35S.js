@@ -8,7 +8,7 @@ let stopped = false
 const webSocketAccess = () => {
 
     //Websocket
-    socket = new WebSocket('wss://localhost:3000')
+    socket = new WebSocket('wss://turniermesc.onrender.com')
     socket.addEventListener('open', () => {
         console.log('Verbindung zum Server hergestellt')
 
@@ -36,7 +36,7 @@ const webSocketAccess = () => {
             }
         })
 
-        fetch('https://localhost:3000/update-player', {
+        fetch('https://turniermesc.onrender.com/update-player', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -157,7 +157,7 @@ const checkCheated = (data) => {
         let response = confirm(`Der User ${data.cheated} hat nach Runden Ende versucht etwas an seiner Liste zu ändern!`)
         
         if(response) {
-            fetch('https://localhost:3000/remove-player', {
+            fetch('https://turniermesc.onrender.com/remove-player', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
