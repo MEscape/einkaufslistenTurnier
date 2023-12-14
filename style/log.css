@@ -1,0 +1,540 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    background-image: url('../img/background.png');
+    background-color: #2b2b2b;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    color: #f5f5f5;
+}
+
+body > h1 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+form, #waitingLobby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 450px;
+}
+
+h2 {
+    color: #ff0000;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+}
+
+button {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    cursor: pointer; 
+}
+
+#roundTime {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: .5rem;
+    border: 1px solid #ff4d4d;
+    color: white;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 6;
+    position: absolute;
+    bottom: 50px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+     margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+button:hover {
+    background-color: #ff4d4d;
+}
+
+form,#waitingLobby, h1, h2, button {
+    opacity: 0;
+    animation: fadeIn forwards 2s;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+
+#logout, #ready, #nextRound, #backVS, #roundTime, #finished, #fetchResult {
+    width: 300px;
+}
+
+.voting > div > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.voting > div > div > h1, .voting > div > div > h2 {
+    font-size: 20px;
+}
+
+.voting > div > div > input {
+    width: auto;
+    margin: 0 10px;
+}
+
+/* Gestaltung der Radio-Boxen */
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+}
+
+input[type="radio"]:checked {
+    background-color: #ff0000;
+}
+
+progress {
+    /* Größe des Fortschrittsbalkens */
+    width: 90%;
+    height: 20px;
+
+    /* Entfernt die Standard-Styles */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.result {
+    display: flex;
+    align-items: center;
+}
+
+/* Für Firefox */
+progress::-moz-progress-bar {
+    /* Farbe des Fortschritts */
+    background: #ff0000;
+    border-radius: 10px;
+}
+
+progress {
+    /* Farbe des verbleibenden Teils */
+    margin: 5px 0;
+    background: #D3D3D3;
+    border-radius: 10px;
+}
+
+/* Für Chrome oder Safari */
+progress::-webkit-progress-bar {
+    /* Farbe des verbleibenden Teils */
+    background: #d3d3d3;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    /* Farbe des Fortschritts */
+    background: #ff0000;
+    border-radius: 10px;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    margin: 10px 0;
+}
+
+/* Gestaltung der Checkboxen */
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #ff0000;
+}
+
+#nextRound {
+    z-index: 6;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+.playerList {
+    width: 300px;
+}
+
+.playerList tr, .playerList td {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+}
+
+tr a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+tr a:hover {
+    color: #ff0000;
+}
+
+#stinger {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    background-color: transparent;
+}
+
+img:not(.placer > img, .editArea img, .white img, .winner img) {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    z-index: 5;
+}
+
+.inactive, #waitingLobby.inactive, .versusUser.inactive, .versus.inactive, .effect.inactive {
+    display: none;
+    color: transparent;
+    opacity: 0;
+    pointer-events: none;
+    background-color: transparent;
+    position: absolute;
+}
+
+.versusUser {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    z-index: 6;
+    pointer-events: auto;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.winner {
+    height: 50%;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    border-radius: .5rem;
+    margin: 5px 20px;
+    justify-content: flex-start;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.winner h1 {
+    font-size: 100px;
+}
+
+.winner img {
+    height: 100%;
+    width: auto;
+    pointer-events: none;
+}
+
+.versusUser > div {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.white img {
+    height: 100%;
+    width: auto;
+    pointer-events: none;
+}
+
+.white h2 {
+    position: absolute;
+    color: white;
+    font-weight: bolder;
+    font-size: 25px;
+    pointer-events: none;
+}
+
+.cardPair {
+    height: 140px;
+    width: 220px;
+    position: relative;
+    transition: transform 200ms ease-in-out;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.rgb::after {
+    content: '';
+    background: rgb(255,9,9);
+    background: linear-gradient(45deg, rgba(255,9,9,1) 0%, rgba(226,91,38,1) 35%, rgba(213,141,24,1) 55%, rgba(212,196,45,1) 74%, rgba(241,255,0,1) 100%) repeat 0 0 / 300% 100%;
+    position: absolute;
+    z-index: -1;
+    inset: -3px;
+    pointer-events: none;
+    filter: blur(.2rem);
+    animation: rgb 5s infinite linear;
+    border-radius: .5rem;
+    overflow: auto;
+}
+
+.white {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: .5rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    pointer-events: none;
+}
+
+.votingPending {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: .5rem;
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    z-index: 15;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+@keyframes rgb {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.cardPair:hover {
+    transform: scale(1.05);
+}
+
+.placer {
+    margin: 5px 20px;
+    background-color: white;
+    height: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.placer > img {
+    height: 100%;
+    width: auto;
+    margin-right: 5px;
+}
+
+.placer h1 {
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.extraWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.extra {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.extra:nth-child(1) {
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.extra:nth-child(2) {
+    align-items: flex-end;
+    margin-right: 10px;
+}
+
+.extra input {
+    margin: 0 0 0 5px;
+}
+
+section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.gamemode {
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: .5rem;
+    padding: 15px
+}
+
+.voting {
+    width: 500px;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: .5rem;
+    padding: 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: space-between;
+}
+
+.gamemode th {
+    font-weight: bold;
+    font-size: 25px;
+    color: red;
+}
+
+.decide {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.decide > div {
+    margin: 5px 0;
+}
+
+.result {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gamemode td {
+    font-size: 16px;
+}
+
+.gamemode td, .gamemode th {
+    padding: 5px 15px;
+    text-align: center;
+}
+
+.metaGame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.time {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.editWrapper {
+    height: 80%;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 10px;
+}
+
+textarea {
+    height: 100%;
+    resize: none;
+}
+
+textarea:focus {
+    outline: black;
+}
+
+.imgWrapper {
+    height: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.editArea {
+    height: 60%;
+    display: flex;
+    width: 70%;
+}
+
+.editArea img {
+    height: 100%;
+    width: auto;
+}
+
+.imgWrapper h1 {
+    font-size: 25px;
+}
