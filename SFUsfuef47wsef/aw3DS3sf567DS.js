@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
         event.preventDefault()
         key = document.getElementById("key").value
 
-        fetch('https://turniermesc.zyklisch.app/check-access', {
+        fetch('https://mesceinkauf.loca.lt/check-access', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('logout').addEventListener('click', () => {
         if(success) {
             success = false
-            fetch('https://turniermesc.onrender.com/log-out', {
+            fetch('https://mesceinkauf.loca.lt/log-out', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
